@@ -12,16 +12,36 @@ type Data = {
   moduleName: string;
 };
 
+const folderToEntityType = new Map([
+  ['components', 'Component'],
+  ['helpers', 'Helper'],
+  ['modifiers', 'Modifier'],
+]);
+
+function parseEntity(dir: string): {
+  entityType: string | undefined;
+  remainingPath: string;
+} {
+  const [folder, ...remainingPaths] = dir.split('/');
+  const entityType = folderToEntityType.get(folder!);
+
+  return {
+    entityType,
+    remainingPath: remainingPaths.join('/'),
+  };
+}
+
 function getModuleName(filePath: string): string {
   let { dir, name } = parseFilePath(filePath);
 
   dir = dir.replace(/^tests\/integration(\/)?/, '');
   name = name.replace(/-test$/, '');
 
-  const entityName = join(dir, name);
+  const { entityType, remainingPath } = parseEntity(dir);
+  const entityName = join(remainingPath, name);
 
   // a.k.a. friendlyTestDescription
-  return ['Integration', entityName].join(' | ');
+  return ['Integration', entityType, entityName].join(' | ');
 }
 
 function renameModule(file: string, data: Data): string {
