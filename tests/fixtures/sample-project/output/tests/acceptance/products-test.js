@@ -9,7 +9,7 @@ import {
 } from 'ember-workshop/tests/helpers';
 import { module, test } from 'qunit';
 
-module('products page', function (hooks) {
+module('Acceptance | products', function (hooks) {
   setupApplicationTest(hooks);
   setupCustomAssertionsForProducts(hooks);
 

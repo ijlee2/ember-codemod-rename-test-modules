@@ -9,7 +9,7 @@ import {
 import { Response } from 'miragejs';
 import { module, test } from 'qunit';
 
-module('Acceptance | forms', function (hooks) {
+module('Acceptance | form', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Accessibility audit', async function (assert) {

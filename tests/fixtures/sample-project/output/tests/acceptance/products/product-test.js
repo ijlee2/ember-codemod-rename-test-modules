@@ -8,7 +8,7 @@ import {
 } from 'ember-workshop/tests/helpers';
 import { module, test } from 'qunit';
 
-module('Acceptance | products | product', function (hooks) {
+module('Acceptance | products/product', function (hooks) {
   setupApplicationTest(hooks);
   setupCustomAssertionsForProducts(hooks);
 
