@@ -4,7 +4,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
-module('ui::form::number', function (hooks) {
+module('Integration | Component | ui/form/number', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {

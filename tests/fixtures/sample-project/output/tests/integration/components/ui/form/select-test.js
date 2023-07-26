@@ -6,7 +6,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { selectByLabel } from 'ember-workshop/tests/helpers';
 import { module, test } from 'qunit';
 
-module('select component', function (hooks) {
+module('Integration | Component | ui/form/select', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks);
 

@@ -6,7 +6,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
-module('Integration | Component | products | product | details', function (hooks) {
+module('Integration | Component | products/product/details', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks);
 

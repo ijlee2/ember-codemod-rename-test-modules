@@ -6,7 +6,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
-module('Integration | Component | ui-form', function (hooks) {
+module('Integration | Component | ui/form', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks);
 

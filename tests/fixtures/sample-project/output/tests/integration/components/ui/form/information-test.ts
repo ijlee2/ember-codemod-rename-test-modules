@@ -3,7 +3,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
-module('Integration | Component | ui | form | information', function (hooks) {
+module('Integration | Component | ui/form/information', function (hooks) {
   setupRenderingTest(hooks);
 
   test('The component renders nothing when we do not pass @title or @instructions', async function (assert) {
