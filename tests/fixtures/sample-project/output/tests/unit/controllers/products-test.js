@@ -1,7 +1,7 @@
 import { setupTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
-module('products', function (hooks) {
+module('Unit | Controller | products', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function () {

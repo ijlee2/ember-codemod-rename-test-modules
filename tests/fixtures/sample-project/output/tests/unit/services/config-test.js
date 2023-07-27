@@ -2,7 +2,7 @@ import { setupTest } from 'ember-qunit';
 import { setupConfigService } from 'ember-workshop/tests/helpers';
 import { module, test } from 'qunit';
 
-module('config', function (hooks) {
+module('Unit | Service | config', function (hooks) {
   setupTest(hooks);
   setupConfigService(hooks, {
     key: {

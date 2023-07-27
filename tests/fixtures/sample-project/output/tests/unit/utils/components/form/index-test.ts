@@ -1,7 +1,7 @@
 import { generateErrorMessage } from 'ember-workshop/utils/components/form';
 import { module, test } from 'qunit';
 
-module('Unit | Utility | components/form', function () {
+module('Unit | Utility | components/form/index', function () {
   module('generateErrorMessage', function () {
     module('isRequired', function () {
       test('When the value type is boolean', function (assert) {

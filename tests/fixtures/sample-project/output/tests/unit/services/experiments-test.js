@@ -3,7 +3,7 @@ import { setupConfigService } from 'ember-workshop/tests/helpers';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
-module('experiments service', function (hooks) {
+module('Unit | Service | experiments', function (hooks) {
   setupTest(hooks);
   setupConfigService(hooks, {
     experiments: {

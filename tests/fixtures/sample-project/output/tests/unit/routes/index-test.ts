@@ -1,7 +1,7 @@
 import { setupTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
-module('index route', function (hooks) {
+module('Unit | Route | index', function (hooks) {
   setupTest(hooks);
 
   test('it exists', function (assert) {

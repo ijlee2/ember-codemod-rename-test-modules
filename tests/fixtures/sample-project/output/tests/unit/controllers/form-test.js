@@ -3,7 +3,7 @@ import { setupTest } from 'ember-qunit';
 import { assignVariants } from 'ember-workshop/tests/helpers';
 import { module, test } from 'qunit';
 
-module('form controller', function (hooks) {
+module('Unit | Controller | form', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function () {
