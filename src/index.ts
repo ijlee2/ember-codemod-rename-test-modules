@@ -2,6 +2,7 @@ import {
   createOptions,
   renameAcceptanceTests,
   renameIntegrationTests,
+  renameUnitTests,
 } from './steps/index.js';
 import type { CodemodOptions } from './types/index.js';
 
@@ -10,4 +11,5 @@ export function runCodemod(codemodOptions: CodemodOptions): void {
 
   renameAcceptanceTests(options);
   renameIntegrationTests(options);
+  renameUnitTests(options);
 }
