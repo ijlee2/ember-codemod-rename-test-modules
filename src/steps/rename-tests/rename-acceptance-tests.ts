@@ -4,7 +4,9 @@ import { join } from 'node:path';
 import { findFiles, parseFilePath } from '@codemod-utils/files';
 
 import type { Options } from '../../types/index.js';
-import { renameModule } from '../../utils/rename-tests/index.js';
+import { parseEntity, renameModule } from '../../utils/rename-tests/index.js';
+
+const folderToEntityType = new Map<string, string>();
 
 function getModuleName(filePath: string): string {
   let { dir, name } = parseFilePath(filePath);
@@ -12,10 +14,11 @@ function getModuleName(filePath: string): string {
   dir = dir.replace(/^tests\/acceptance(\/)?/, '');
   name = name.replace(/-test$/, '');
 
-  const entityName = join(dir, name);
+  const { entityType, remainingPath } = parseEntity(dir, folderToEntityType);
+  const entityName = join(remainingPath, name);
 
   // a.k.a. friendlyTestDescription
-  return ['Acceptance', entityName].join(' | ');
+  return ['Acceptance', entityType, entityName].filter(Boolean).join(' | ');
 }
 
 export function renameAcceptanceTests(options: Options): void {

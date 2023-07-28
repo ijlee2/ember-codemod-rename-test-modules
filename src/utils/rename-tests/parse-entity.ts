@@ -8,6 +8,13 @@ export function parseEntity(
   const [folder, ...remainingPaths] = dir.split('/');
   const entityType = folderToEntityType.get(folder!);
 
+  if (entityType === undefined) {
+    return {
+      entityType,
+      remainingPath: dir,
+    };
+  }
+
   return {
     entityType,
     remainingPath: remainingPaths.join('/'),

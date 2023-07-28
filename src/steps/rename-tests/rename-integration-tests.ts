@@ -22,7 +22,7 @@ function getModuleName(filePath: string): string {
   const entityName = join(remainingPath, name);
 
   // a.k.a. friendlyTestDescription
-  return ['Integration', entityType, entityName].join(' | ');
+  return ['Integration', entityType, entityName].filter(Boolean).join(' | ');
 }
 
 export function renameIntegrationTests(options: Options): void {

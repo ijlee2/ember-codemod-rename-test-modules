@@ -29,7 +29,7 @@ function getModuleName(filePath: string): string {
   const entityName = join(remainingPath, name);
 
   // a.k.a. friendlyTestDescription
-  return ['Unit', entityType, entityName].join(' | ');
+  return ['Unit', entityType, entityName].filter(Boolean).join(' | ');
 }
 
 export function renameUnitTests(options: Options): void {
