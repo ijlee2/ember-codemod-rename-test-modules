@@ -1,16 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { AST } from '@codemod-utils/ast-javascript';
 import { findFiles, parseFilePath } from '@codemod-utils/files';
 
 import type { Options } from '../../types/index.js';
-
-type Data = {
-  isTypeScript: boolean;
-  moduleName: string;
-};
+import { renameModule } from '../../utils/rename-tests/index.js';
 
 const folderToEntityType = new Map([
   ['adapters', 'Adapter'],
@@ -49,43 +43,6 @@ function getModuleName(filePath: string): string {
 
   // a.k.a. friendlyTestDescription
   return ['Unit', entityType, entityName].join(' | ');
-}
-
-function renameModule(file: string, data: Data): string {
-  const traverse = AST.traverse(data.isTypeScript);
-
-  const ast = traverse(file, {
-    visitCallExpression(node) {
-      if (
-        node.value.callee.type !== 'Identifier' ||
-        node.value.callee.name !== 'module'
-      ) {
-        return false;
-      }
-
-      if (node.value.arguments.length !== 2) {
-        return false;
-      }
-
-      switch (node.value.arguments[0].type) {
-        case 'Literal': {
-          node.value.arguments[0] = AST.builders.literal(data.moduleName);
-
-          break;
-        }
-
-        case 'StringLiteral': {
-          node.value.arguments[0] = AST.builders.stringLiteral(data.moduleName);
-
-          break;
-        }
-      }
-
-      return false;
-    },
-  });
-
-  return AST.print(ast);
 }
 
 export function renameUnitTests(options: Options): void {
