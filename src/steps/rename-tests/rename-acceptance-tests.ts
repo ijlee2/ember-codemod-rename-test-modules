@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { AST } from '@codemod-utils/ast-javascript';
 import { findFiles, parseFilePath } from '@codemod-utils/files';
 
-import type { Options } from '../types/index.js';
+import type { Options } from '../../types/index.js';
 
 type Data = {
   isTypeScript: boolean;
