@@ -10,6 +10,7 @@ _Codemod to rename test modules_
 ### Arguments
 
 <details>
+
 <summary>Optional: Specify the project root</summary>
 
 Pass `--root` to run the codemod somewhere else (i.e. not in the current directory).
