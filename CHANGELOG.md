@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0 (2023-09-14)
+
+### Breaking Change
+* [#3](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/3) Dropped Node 16 support and marked stable ([@ijlee2](https://github.com/ijlee2))
+
+### Internal
+* [#3](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/3) Dropped Node 16 support and marked stable ([@ijlee2](https://github.com/ijlee2))
+
+### Committers: 1
+- Isaac Lee ([@ijlee2](https://github.com/ijlee2))
+
+
 ## 0.1.2 (2023-09-02)
 
 ### Internal
