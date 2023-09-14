@@ -36,6 +36,7 @@ module.exports = {
         'plugin:typescript-sort-keys/recommended',
       ],
       rules: {
+        '@typescript-eslint/array-type': 'error',
         'import/no-duplicates': 'error',
       },
     },
