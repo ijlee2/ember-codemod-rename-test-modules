@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { AST } from '@codemod-utils/ast-javascript';
 
 type Data = {
