@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.7 (2024-08-14)
+
+### Internal
+* [#11](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/11) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+* [#10](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/10) Used pnpm@9 to manage dependencies ([@ijlee2](https://github.com/ijlee2))
+
+### Committers: 1
+- Isaac Lee ([@ijlee2](https://github.com/ijlee2))
+
+
 ## 1.0.6 (2024-06-07)
 
 ### Internal
