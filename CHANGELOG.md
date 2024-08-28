@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.8 (2024-08-28)
+
+### Internal
+* [#12](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/12) Downstreamed changes from @codemod-utils/cli@2.0.1 ([@ijlee2](https://github.com/ijlee2))
+
+### Committers: 1
+- Isaac Lee ([@ijlee2](https://github.com/ijlee2))
+
+
 ## 1.0.7 (2024-08-14)
 
 ### Internal
