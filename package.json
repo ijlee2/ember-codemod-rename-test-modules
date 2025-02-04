@@ -1,6 +1,6 @@
 {
   "name": "ember-codemod-rename-test-modules",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Codemod to rename test modules",
   "keywords": [
     "codemod",
@@ -24,13 +24,13 @@
   ],
   "scripts": {
     "build": "./build.sh --production",
-    "lint": "concurrently 'pnpm:lint:*(!fix)' --names 'lint:'",
-    "lint:fix": "concurrently 'pnpm:lint:*:fix' --names 'fix:'",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\"",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "tsc --noEmit",
     "prepare": "pnpm build",
-    "release:changelog": "lerna-changelog",
+    "release:prepare": "lerna-changelog",
     "release:publish": "pnpm publish",
     "test": "./build.sh --test && mt dist-for-testing --quiet"
   },
