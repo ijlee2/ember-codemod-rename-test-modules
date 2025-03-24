@@ -66,23 +66,34 @@ Here are some guidelines to help you and everyone else.
 
 <details>
 
-<summary>Publish packages (for admins)</summary>
+<summary>Add changeset to pull request</code></summary>
+
+1. To record how a pull request affects packages, you will want to add a changeset.
+
+    The changeset provides a summary of the code change. It also describes how package versions should be updated (major, minor, or patch) as a result of the code change.
+
+    ```sh
+    pnpm changeset
+    ```
+
+</details>
+
+
+<details>
+
+<summary>Publish package (for admins)</summary>
 
 1. Generate a [personal access token](https://github.com/settings/tokens/) in GitHub, with default values for scopes (none selected).
 
-1. Run the `release:prepare` script. This generates a text that you can add to `CHANGELOG.md`.
+1. Run the `release:prepare` script. This removes changesets, updates the package version (e.g. from `0.1.1` to `0.1.2`), and updates the `CHANGELOG`.
 
     ```sh
-    # From the workspace root
-    GITHUB_AUTH=<YOUR_PERSONAL_ACCESS_TOKEN> pnpm release:prepare
+    GITHUB_TOKEN=<YOUR_PERSONAL_ACCESS_TOKEN> pnpm release:prepare
     ```
-
-    The package follows [semantic versioning](https://semver.org/). Update the version in `package.json` accordingly (e.g. from `0.1.1` to `0.1.2`).
 
 1. Review the file changes. Commit them in a branch, then open a pull request to merge the changes to the `main` branch.
 
     ```sh
-    # From the workspace root
     git checkout -b tag-0.1.2
     git add .
     git commit -m "Tagged 0.1.2"
@@ -94,7 +105,6 @@ Here are some guidelines to help you and everyone else.
 1. Publish the package.
 
     ```sh
-    # From the workspace root
     pnpm release:publish
     ```
 
