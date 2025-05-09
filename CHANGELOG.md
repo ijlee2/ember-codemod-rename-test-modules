@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [#17](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/17) Dropped Node 18 support ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#17](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/17) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 1.0.12
 
 ### Patch Changes
