@@ -1,6 +1,6 @@
 {
   "name": "ember-codemod-rename-test-modules",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Codemod to rename test modules",
   "keywords": [
     "codemod",
