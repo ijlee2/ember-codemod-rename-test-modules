@@ -3,7 +3,7 @@ import { Response } from 'miragejs';
 import { setupTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('config', function (hooks) {
+module('Unit | Service | api', function (hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 

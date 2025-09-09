@@ -3,7 +3,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('Integration | Component | ui | form | information', function (hooks) {
+module('Integration | Component | ui/form/information', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {

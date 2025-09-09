@@ -1,7 +1,7 @@
 import { setupTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('Serializer | application', function (hooks) {
+module('Unit | Serializer | application', function (hooks) {
   setupTest(hooks);
 
   // Replace this with your real tests.

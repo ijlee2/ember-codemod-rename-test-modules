@@ -4,7 +4,7 @@ import { getPageTitle } from 'ember-page-title/test-support';
 import { setupApplicationTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('index', function (hooks) {
+module('Acceptance | index', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Accessibility audit', async function (assert) {

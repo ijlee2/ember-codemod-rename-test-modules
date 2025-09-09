@@ -7,7 +7,7 @@ import {
 } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('Acceptance | products | product', function (hooks) {
+module('Acceptance | products/product', function (hooks) {
   setupApplicationTest(hooks);
 
   hooks.beforeEach(function () {

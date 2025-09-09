@@ -7,7 +7,7 @@ interface TestContext extends BaseTestContext {
   route: IndexRoute;
 }
 
-module('index route', function (hooks) {
+module('Unit | Route | index', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function (this: TestContext) {

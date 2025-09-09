@@ -2,7 +2,7 @@ import ProductsProductRoute from 'my-app/routes/products/product';
 import { setupTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('Unit | Route | products | product', function (hooks) {
+module('Unit | Route | products/product', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function () {

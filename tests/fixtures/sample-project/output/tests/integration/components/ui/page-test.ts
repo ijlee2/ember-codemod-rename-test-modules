@@ -5,7 +5,7 @@ import { getClassForUiPage as getClass } from 'my-addon/test-support';
 import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('ui::page', function (hooks) {
+module('Integration | Component | ui/page', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {

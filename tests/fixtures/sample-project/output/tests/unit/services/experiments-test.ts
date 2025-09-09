@@ -8,7 +8,7 @@ interface TestContext extends BaseTestContext {
   experiments: Services['experiments'];
 }
 
-module('experiments service', function (hooks) {
+module('Unit | Service | experiments', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function (this: TestContext) {

@@ -13,7 +13,7 @@ interface TestContext extends BaseTestContext {
   updateData: ({ key, value }: { key: string; value: unknown }) => void;
 }
 
-module('Integration | ui/textarea', function (hooks) {
+module('Integration | Component | ui/form/textarea', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function (this: TestContext) {

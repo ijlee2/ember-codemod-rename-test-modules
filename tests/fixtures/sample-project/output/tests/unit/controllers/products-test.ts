@@ -7,7 +7,7 @@ interface TestContext extends BaseTestContext {
   controller: ProductsController;
 }
 
-module('products', function (hooks) {
+module('Unit | Controller | products', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function (this: TestContext) {

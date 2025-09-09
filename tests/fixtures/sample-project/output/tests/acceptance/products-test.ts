@@ -13,7 +13,7 @@ import { module, test } from 'qunit';
 
 interface TestContext extends ApplicationTestContext {}
 
-module('products page', function (hooks) {
+module('Acceptance | products', function (hooks) {
   setupApplicationTest(hooks);
 
   hooks.beforeEach(function (this: TestContext) {

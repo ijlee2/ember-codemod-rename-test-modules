@@ -11,7 +11,7 @@ interface TestContext extends BaseTestContext {
   server: Server;
 }
 
-module('Unit | Util | form', function (hooks) {
+module('Unit | Utility | controllers/form', function (hooks) {
   setupTest(hooks);
   setupMirage(hooks);
 

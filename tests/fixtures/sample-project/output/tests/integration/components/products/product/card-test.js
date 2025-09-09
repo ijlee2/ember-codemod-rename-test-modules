@@ -5,7 +5,7 @@ import { setupIntl } from 'ember-intl/test-support';
 import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('<Products::Product::Card>', function (hooks) {
+module('Integration | Component | products/product/card', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, 'en-us');
 
