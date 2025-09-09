@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.0
+
+### Minor Changes
+
+- [#23](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/23) Supported `*.{gjs,gts}` files ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [#22](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/22) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.0.2
 
 ### Patch Changes
