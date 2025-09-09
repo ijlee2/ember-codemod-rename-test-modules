@@ -1,169 +1,158 @@
 import { set } from '@ember/object';
 import { fillIn, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import { setupRenderingTest } from 'ember-qunit';
+import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
 module('Integration | Component | ui/form/input', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
-    this.changeset = {
+    this.data = {
       email: 'zoey@emberjs.com',
       message: 'I 🧡 container queries!',
       name: 'Zoey',
       subscribe: false,
     };
+
+    this.updateData = () => {
+      // Do nothing
+    };
   });
 
-  test('The component renders a label and an input', async function (assert) {
+  test('it renderes', async function (assert) {
     await render(hbs`
       <Ui::Form::Input
-        @changeset={{this.changeset}}
+        @data={{this.data}}
         @key="name"
         @label="Name"
+        @onUpdate={{this.updateData}}
       />
     `);
 
-    assert
-      .dom('[data-test-label]')
-      .hasText('Name', 'We see the correct label.');
+    assert.dom('[data-test-label]').hasText('Name');
 
     assert
-      .dom('[data-test-field="Name"]')
-      .doesNotHaveAttribute('readonly', 'The input should not be readonly.')
-      .hasAttribute('type', 'text', 'We see the correct type.')
-      .hasTagName('input', 'We see the correct tag name.')
-      .hasValue('Zoey', 'We see the correct value.')
-      .isEnabled('The input should be enabled.')
-      .isNotRequired('The input should not be required.');
+      .dom('[data-test-field]')
+      .doesNotHaveAttribute('readonly')
+      .hasAttribute('type', 'text')
+      .hasTagName('input')
+      .hasValue('Zoey')
+      .isEnabled()
+      .isNotRequired();
 
-    assert
-      .dom('[data-test-feedback]')
-      .doesNotExist('We should not see an error message.');
+    assert.dom('[data-test-error-message]').doesNotExist();
   });
 
   test('We can pass @isDisabled to disable the input', async function (assert) {
     await render(hbs`
       <Ui::Form::Input
-        @changeset={{this.changeset}}
+        @data={{this.data}}
         @isDisabled={{true}}
         @key="name"
         @label="Name"
+        @onUpdate={{this.updateData}}
       />
     `);
 
-    assert.dom('[data-test-field="Name"]').isDisabled('The input is disabled.');
+    assert.dom('[data-test-field]').isDisabled();
   });
 
   test('We can pass @isReadOnly to display the value', async function (assert) {
     await render(hbs`
       <Ui::Form::Input
-        @changeset={{this.changeset}}
+        @data={{this.data}}
         @isReadOnly={{true}}
         @key="name"
         @label="Name"
+        @onUpdate={{this.updateData}}
       />
     `);
 
     assert
-      .dom('[data-test-field="Name"]')
-      .hasAttribute('readonly', '', 'We see the readonly attribute.')
-      .hasValue('Zoey', 'We see the correct value.');
+      .dom('[data-test-field]')
+      .hasAttribute('readonly', '')
+      .hasValue('Zoey');
   });
 
   test('We can pass @isRequired to require a value', async function (assert) {
     await render(hbs`
       <Ui::Form::Input
-        @changeset={{this.changeset}}
+        @data={{this.data}}
         @isRequired={{true}}
         @key="name"
         @label="Name"
+        @onUpdate={{this.updateData}}
       />
     `);
 
-    assert
-      .dom('[data-test-label]')
-      .hasText('Name *', 'The label shows that the field is required.');
+    assert.dom('[data-test-label]').hasText('Name *');
 
-    assert.dom('[data-test-field="Name"]').isRequired('The input is required.');
+    assert.dom('[data-test-field]').isRequired();
   });
 
   test('We can pass @onUpdate to get the updated value', async function (assert) {
-    assert.expect(6);
-
     let expectedValue = '';
 
-    this.updateChangeset = ({ key, value }) => {
-      assert.strictEqual(
-        value,
-        expectedValue,
-        'The changeset has the correct value.',
-      );
+    this.updateData = ({ key, value }) => {
+      assert.step('onUpdate');
 
-      set(this.changeset, key, value);
+      assert.strictEqual(value, expectedValue);
+
+      set(data, key, value);
     };
 
     await render(hbs`
       <Ui::Form::Input
-        @changeset={{this.changeset}}
+        @data={{this.data}}
         @isRequired={{true}}
         @key="name"
         @label="Name"
-        @onUpdate={{this.updateChangeset}}
+        @onUpdate={{this.updateData}}
       />
     `);
 
     // Update the value
-    await fillIn('[data-test-field="Name"]', '');
+    await fillIn('[data-test-field]', '');
 
-    assert
-      .dom('[data-test-field="Name"]')
-      .hasValue('', 'We see the correct value.');
+    assert.dom('[data-test-field]').hasValue('');
 
-    assert
-      .dom('[data-test-feedback]')
-      .hasText('Please provide a value.', 'We see an error message.');
+    assert.dom('[data-test-error-message]').hasText('Please provide a value.');
 
     // Update the value again
     expectedValue = 'Tomster';
 
-    await fillIn('[data-test-field="Name"]', 'Tomster');
+    await fillIn('[data-test-field]', 'Tomster');
 
-    assert
-      .dom('[data-test-field="Name"]')
-      .hasValue('Tomster', 'We see the correct value.');
+    assert.dom('[data-test-field]').hasValue('Tomster');
 
-    assert
-      .dom('[data-test-feedback]')
-      .doesNotExist('We should not see an error message.');
+    assert.dom('[data-test-error-message]').doesNotExist();
+
+    assert.verifySteps(['onUpdate', 'onUpdate']);
   });
 
   test('We can pass @type to create an email input', async function (assert) {
     await render(hbs`
       <Ui::Form::Input
-        @changeset={{this.changeset}}
+        @data={{this.data}}
         @key="email"
         @label="Email"
+        @onUpdate={{this.updateData}}
         @type="email"
       />
     `);
 
-    assert
-      .dom('[data-test-label]')
-      .hasText('Email', 'We see the correct label.');
+    assert.dom('[data-test-label]').hasText('Email');
 
     assert
-      .dom('[data-test-field="Email"]')
-      .doesNotHaveAttribute('readonly', 'The input should not be readonly.')
-      .hasAttribute('type', 'email', 'We see the correct type.')
-      .hasTagName('input', 'We see the correct tag name.')
-      .hasValue('zoey@emberjs.com', 'We see the correct value.')
-      .isEnabled('The input should be enabled.')
-      .isNotRequired('The input should not be required.');
+      .dom('[data-test-field]')
+      .doesNotHaveAttribute('readonly')
+      .hasAttribute('type', 'email')
+      .hasTagName('input')
+      .hasValue('zoey@emberjs.com')
+      .isEnabled()
+      .isNotRequired();
 
-    assert
-      .dom('[data-test-feedback]')
-      .doesNotExist('We should not see an error message.');
+    assert.dom('[data-test-error-message]').doesNotExist();
   });
 });

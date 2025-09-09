@@ -1,7 +1,7 @@
-import { setupTest } from 'ember-qunit';
+import { setupTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('Unit | Serializer | application', function (hooks) {
+module('Serializer | application', function (hooks) {
   setupTest(hooks);
 
   // Replace this with your real tests.

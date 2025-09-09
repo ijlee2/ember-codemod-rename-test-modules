@@ -2,18 +2,19 @@ import { click, currentURL, findAll, visit } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { getPageTitle } from 'ember-page-title/test-support';
 import {
-  assignVariants,
+  assertProductDetails,
+  assertProducts,
   setupApplicationTest,
-  setupCustomAssertionsForProducts,
-} from 'ember-workshop/tests/helpers';
+  setupExperiments,
+} from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
 module('Acceptance | product-details', function (hooks) {
   setupApplicationTest(hooks);
-  setupCustomAssertionsForProducts(hooks);
 
   hooks.beforeEach(function () {
-    this.product = this.server.create('product', {
+    this.server.create('product', {
+      categoryId: 'cake',
       description: 'Made with organic herbs',
       name: 'Vanilla Ice Cream Cake',
       price: 40,
@@ -23,15 +24,17 @@ module('Acceptance | product-details', function (hooks) {
     });
 
     this.server.create('product', {
-      description: 'Decorate your laptop with Tomster and Zoey!',
-      name: 'Ember.js Stickers',
+      categoryId: 'mug',
+      description: 'A good day starts with a good cup of coffee',
+      name: 'Ember.js Mug',
       price: 8,
       rating: 5,
       seller: 'Ember',
-      shortDescription: 'Decorate your laptop with Tomster and Zoey!',
+      shortDescription: 'A good day starts with a good cup of coffee',
     });
 
     this.server.create('product', {
+      categoryId: 'cake',
       description: 'A chocolate sponge cake with a rich cherry filling',
       name: 'Black Forest Cake',
       price: 70,
@@ -42,10 +45,8 @@ module('Acceptance | product-details', function (hooks) {
   });
 
   module('nest-product-details, control', function (nestedHooks) {
-    nestedHooks.beforeEach(function () {
-      assignVariants({
-        'nest-product-details': 'control',
-      });
+    setupExperiments(nestedHooks, {
+      'nest-product-details': 'control',
     });
 
     test('Accessibility audit', async function (assert) {
@@ -55,20 +56,15 @@ module('Acceptance | product-details', function (hooks) {
       assert.strictEqual(
         getPageTitle(),
         'Vanilla Ice Cream Cake | Ember Workshop',
-        'We render the correct page title.',
       );
     });
 
-    test('A user can visit the product-details route', async function (assert) {
+    test('We can visit the page', async function (assert) {
       await visit('/product-details/1');
 
-      assert.strictEqual(
-        currentURL(),
-        '/product-details/1',
-        'The user is on the product-details route.',
-      );
+      assert.strictEqual(currentURL(), '/product-details/1');
 
-      assert.areProductDetailsCorrect({
+      assertProductDetails(assert, {
         description: 'Made with organic herbs',
         name: 'Vanilla Ice Cream Cake',
         price: '$40',
@@ -77,19 +73,15 @@ module('Acceptance | product-details', function (hooks) {
       });
     });
 
-    test('A user can check another product', async function (assert) {
+    test('We can check the details of another product', async function (assert) {
       await visit('/product-details/1');
       await click('[data-test-link="Back"]');
 
-      assert.strictEqual(
-        currentURL(),
-        '/products',
-        'The user is on the products route.',
-      );
+      assert.strictEqual(currentURL(), '/products');
 
-      assert.areProductsCorrect([
+      assertProducts(assert, [
         'Vanilla Ice Cream Cake',
-        'Ember.js Stickers',
+        'Ember.js Mug',
         'Black Forest Cake',
       ]);
 
@@ -97,13 +89,9 @@ module('Acceptance | product-details', function (hooks) {
 
       await click(products[2].querySelector('[data-test-link="Learn More"]'));
 
-      assert.strictEqual(
-        currentURL(),
-        '/product-details/3',
-        'The user is on the product-details route.',
-      );
+      assert.strictEqual(currentURL(), '/product-details/3');
 
-      assert.areProductDetailsCorrect({
+      assertProductDetails(assert, {
         description: 'A chocolate sponge cake with a rich cherry filling',
         name: 'Black Forest Cake',
         price: '$70',
@@ -112,40 +100,30 @@ module('Acceptance | product-details', function (hooks) {
       });
     });
 
-    test('When a user checks a product that does not exist, we redirect them to the products route', async function (assert) {
+    test('When we check a product that does not exist, we are redirected to the products route', async function (assert) {
       await visit('/product-details/not-a-valid-id');
 
-      assert.strictEqual(
-        currentURL(),
-        '/products',
-        'We redirect the user to the products route.',
-      );
+      assert.strictEqual(currentURL(), '/products');
 
-      assert.areProductsCorrect([
+      assertProducts(assert, [
         'Vanilla Ice Cream Cake',
-        'Ember.js Stickers',
+        'Ember.js Mug',
         'Black Forest Cake',
       ]);
     });
   });
 
   module('nest-product-details, v1', function (nestedHooks) {
-    nestedHooks.beforeEach(function () {
-      assignVariants({
-        'nest-product-details': 'v1',
-      });
+    setupExperiments(nestedHooks, {
+      'nest-product-details': 'v1',
     });
 
-    test('A user cannot visit the product-details route', async function (assert) {
+    test('We cannot visit the page', async function (assert) {
       await visit('/product-details/1');
 
-      assert.strictEqual(
-        currentURL(),
-        '/products/1',
-        'We redirect the user to the products.product route.',
-      );
+      assert.strictEqual(currentURL(), '/products/1', 'We are redirected.');
 
-      assert.areProductDetailsCorrect({
+      assertProductDetails(assert, {
         description: 'Made with organic herbs',
         name: 'Vanilla Ice Cream Cake',
         price: '$40',

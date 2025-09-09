@@ -1,7 +1,7 @@
 import { currentURL, visit } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { getPageTitle } from 'ember-page-title/test-support';
-import { setupApplicationTest } from 'ember-workshop/tests/helpers';
+import { setupApplicationTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
 module('index', function (hooks) {
@@ -11,16 +11,12 @@ module('index', function (hooks) {
     await visit('/');
     await a11yAudit();
 
-    assert.strictEqual(
-      getPageTitle(),
-      'Ember Workshop',
-      'We render the correct page title.',
-    );
+    assert.strictEqual(getPageTitle(), 'Ember Workshop');
   });
 
-  test('A user can visit the index route', async function (assert) {
+  test('We can visit the page', async function (assert) {
     await visit('/');
 
-    assert.strictEqual(currentURL(), '/', 'The user is on the index route.');
+    assert.strictEqual(currentURL(), '/');
   });
 });
