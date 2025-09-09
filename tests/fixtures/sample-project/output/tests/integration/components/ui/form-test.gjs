@@ -6,7 +6,7 @@ import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 import { spy } from 'sinon';
 
-module('Integration | Component | ui-form', function (hooks) {
+module('Integration | Component | ui/form', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, 'en-us');
 

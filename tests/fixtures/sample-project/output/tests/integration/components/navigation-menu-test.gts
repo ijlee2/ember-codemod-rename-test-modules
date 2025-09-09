@@ -5,7 +5,7 @@ import { getClassForNavigationMenu as getClass } from 'my-addon/test-support';
 import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('Integration | Component | <NavigationMenu>', function (hooks) {
+module('Integration | Component | navigation-menu', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {

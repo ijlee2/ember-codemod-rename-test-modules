@@ -4,7 +4,7 @@ import { UiFormField } from 'my-addon';
 import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('Integration | Components | ui/form/field', function (hooks) {
+module('Integration | Component | ui/form/field', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {

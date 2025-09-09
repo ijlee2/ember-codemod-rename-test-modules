@@ -19,7 +19,7 @@ interface TestContext extends BaseTestContext {
   parent: UiForm;
 }
 
-module('select component', function (hooks) {
+module('Integration | Component | ui/form/select', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, 'en-us');
 

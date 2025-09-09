@@ -6,7 +6,7 @@ import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 import { stub } from 'sinon';
 
-module('Integration | Component | products | product | details', function (hooks) {
+module('Integration | Component | products/product/details', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, 'en-us');
 

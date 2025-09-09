@@ -2,7 +2,7 @@ import FormRoute from 'my-app/routes/form';
 import { setupTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('Unit | Route', function (hooks) {
+module('Unit | Route | form', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function () {

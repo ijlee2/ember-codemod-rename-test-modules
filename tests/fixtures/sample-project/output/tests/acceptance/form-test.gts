@@ -13,7 +13,7 @@ import { module, test } from 'qunit';
 
 interface TestContext extends ApplicationTestContext {}
 
-module('Acceptance | forms', function (hooks) {
+module('Acceptance | form', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Accessibility audit', async function (assert) {

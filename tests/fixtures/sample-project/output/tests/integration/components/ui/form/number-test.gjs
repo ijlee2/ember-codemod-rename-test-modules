@@ -4,7 +4,7 @@ import { UiForm } from 'my-addon/test-support';
 import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
-module('ui::form::number', function (hooks) {
+module('Integration | Component | ui/form/number', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
