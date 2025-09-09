@@ -1,29 +1,38 @@
 import { render } from '@ember/test-helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 import { hbs } from 'ember-cli-htmlbars';
-import { setupRenderingTest } from 'ember-qunit';
+import { getClassForUiPage as getClass } from 'my-addon/test-support';
+import { setupRenderingTest } from 'my-app/tests/helpers';
 import { module, test } from 'qunit';
 
 module('Integration | Component | ui/page', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('The component handles the page layout', async function (assert) {
+  test('it renders', async function (assert) {
     await render(hbs`
-      <Ui::Page
-        @title="Forms"
-      >
+      <Ui::Page @title="Form">
         <div data-test-content>
           Content goes here.
         </div>
       </Ui::Page>
     `);
 
-    assert.dom('h1').hasText('Forms', 'We see the title.');
+    assert.dom('h1').hasText('Form');
 
-    assert.dom('[data-test-content]').exists('We see the yielded content.');
+    assert.dom('[data-test-content]').exists();
 
     await a11yAudit();
+  });
 
-    assert.ok(true, 'We passed the accessibility audit.');
+  test('CSS modules', async function (assert) {
+    await render(hbs`
+      <Ui::Page @title="Form">
+        <div data-test-content>
+          Content goes here.
+        </div>
+      </Ui::Page>
+    `);
+
+    assert.dom('h1').hasClass(getClass('title'));
   });
 });
