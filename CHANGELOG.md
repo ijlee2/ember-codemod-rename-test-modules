@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.1.1
+
+### Patch Changes
+
+- [#25](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/25) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.1.0
 
 ### Minor Changes
