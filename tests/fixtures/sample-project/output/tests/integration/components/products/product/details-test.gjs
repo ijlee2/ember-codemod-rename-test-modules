@@ -27,9 +27,7 @@ module('Integration | Component | products/product/details', function (hooks) {
   test('it renders', async function (assert) {
     const { product } = this;
 
-    await render(
-      <template><ProductsProductDetails @product={{product}} /></template>,
-    );
+    await render(<template><ProductsProductDetails @product={{product}} /></template>);
 
     assert.dom('[data-test-field="Name"]').hasText('Vanilla Ice Cream Cake');
 
@@ -57,9 +55,7 @@ module('Integration | Component | products/product/details', function (hooks) {
 
     const { product } = this;
 
-    await render(
-      <template><ProductsProductDetails @product={{product}} /></template>,
-    );
+    await render(<template><ProductsProductDetails @product={{product}} /></template>);
 
     assert.true(log.notCalled);
 
