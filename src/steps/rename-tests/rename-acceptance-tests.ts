@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative, sep } from 'node:path';
 
 import { updateJavaScript } from '@codemod-utils/ast-template-tag';
 import { findFiles, parseFilePath } from '@codemod-utils/files';
@@ -16,11 +16,11 @@ const folderToEntityType = new Map<string, string>();
 function getModuleName(filePath: string): string {
   let { dir, name } = parseFilePath(filePath);
 
-  dir = dir.replace(/^tests\/acceptance(\/)?/, '');
+  dir = relative('tests/acceptance', dir);
   name = name.replace(/-test$/, '');
 
   const { entityType, remainingPath } = parseEntity(dir, folderToEntityType);
-  const entityName = join(remainingPath, name);
+  const entityName = join(remainingPath, name).replaceAll(sep, '/');
 
   // a.k.a. friendlyTestDescription
   return ['Acceptance', entityType, entityName].filter(Boolean).join(' | ');

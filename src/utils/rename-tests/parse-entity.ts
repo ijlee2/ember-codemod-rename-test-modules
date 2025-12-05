@@ -1,3 +1,5 @@
+import { sep } from 'node:path';
+
 export function parseEntity(
   dir: string,
   folderToEntityType: Map<string, string>,
@@ -5,7 +7,7 @@ export function parseEntity(
   entityType: string | undefined;
   remainingPath: string;
 } {
-  const [folder, ...remainingPaths] = dir.split('/');
+  const [folder, ...remainingPaths] = dir.split(sep);
   const entityType = folderToEntityType.get(folder!);
 
   if (entityType === undefined) {
@@ -17,6 +19,6 @@ export function parseEntity(
 
   return {
     entityType,
-    remainingPath: remainingPaths.join('/'),
+    remainingPath: remainingPaths.join(sep),
   };
 }
