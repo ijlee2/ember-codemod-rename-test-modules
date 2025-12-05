@@ -1,4 +1,4 @@
-import { assert, test } from '@codemod-utils/tests';
+import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
 import { renameModule } from '../../../../src/utils/rename-tests/index.js';
 
@@ -10,5 +10,5 @@ test('utils | rename-tests | rename-module > edge case (module has incorrect arg
     moduleName: 'New name',
   });
 
-  assert.strictEqual(newFile, `module('Old name');\n`);
+  assert.strictEqual(newFile, normalizeFile([`module('Old name');`, ``]));
 });

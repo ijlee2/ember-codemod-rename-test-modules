@@ -1,4 +1,4 @@
-import { assert, test } from '@codemod-utils/tests';
+import { assert, normalizeFile, test } from '@codemod-utils/tests';
 
 import { renameModule } from '../../../../src/utils/rename-tests/index.js';
 
@@ -10,5 +10,8 @@ test('utils | rename-tests | rename-module > typescript', function () {
     moduleName: 'New name',
   });
 
-  assert.strictEqual(newFile, `module('New name', function (hooks) {});\n`);
+  assert.strictEqual(
+    newFile,
+    normalizeFile([`module('New name', function (hooks) {});`, ``]),
+  );
 });

@@ -1,3 +1,5 @@
+import { normalize } from 'node:path';
+
 import { assert, test } from '@codemod-utils/tests';
 
 import { parseEntity } from '../../../../src/utils/rename-tests/index.js';
@@ -9,10 +11,13 @@ test('utils | rename-tests | parse-entity > base case', function () {
     ['modifiers', 'Modifier'],
   ]);
 
-  const output = parseEntity('components/ui/form', folderToEntityType);
+  const output = parseEntity(
+    normalize('components/ui/form'),
+    folderToEntityType,
+  );
 
   assert.deepStrictEqual(output, {
     entityType: 'Component',
-    remainingPath: 'ui/form',
+    remainingPath: normalize('ui/form'),
   });
 });
