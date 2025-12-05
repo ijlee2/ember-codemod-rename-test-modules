@@ -1,3 +1,5 @@
+import { normalize } from 'node:path';
+
 import { assert, test } from '@codemod-utils/tests';
 
 import { parseEntity } from '../../../../src/utils/rename-tests/index.js';
@@ -16,10 +18,13 @@ test('utils | rename-tests | parse-entity > edge case (entity type is unknown)',
     ['utils', 'Utility'],
   ]);
 
-  const output = parseEntity('resources/remote-data', folderToEntityType);
+  const output = parseEntity(
+    normalize('resources/remote-data'),
+    folderToEntityType,
+  );
 
   assert.deepStrictEqual(output, {
     entityType: undefined,
-    remainingPath: 'resources/remote-data',
+    remainingPath: normalize('resources/remote-data'),
   });
 });
