@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.0
+
+### Minor Changes
+
+- [#30](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/30) Supported Windows ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.1.4
 
 ### Patch Changes
