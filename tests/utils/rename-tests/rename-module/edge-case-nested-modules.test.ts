@@ -3,12 +3,12 @@ import { assert, normalizeFile, test } from '@codemod-utils/tests';
 import { renameModule } from '../../../../src/utils/rename-tests/index.js';
 
 test('utils | rename-tests | rename-module > edge case (nested modules)', function () {
-  const oldFile = [
+  const oldFile = normalizeFile([
     `module('Old name', function (hooks) {`,
     `  module('Old name', function (nestedHooks) {});`,
     `});`,
     ``,
-  ].join('\n');
+  ]);
 
   const newFile = renameModule(oldFile, {
     isTypeScript: true,
