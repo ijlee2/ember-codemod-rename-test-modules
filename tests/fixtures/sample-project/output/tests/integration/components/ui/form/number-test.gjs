@@ -14,16 +14,14 @@ module('Integration | Component | ui/form/number', function (hooks) {
   test('it renders', async function (assert) {
     const { parent } = this;
 
-    await render(<template>
-    <UiFormNumber
-      @data={{parent.data}}
-      @key="donation"
-      @label="Donation amount (\$)"
-      @minValue={{0}}
-      @onUpdate={{parent.updateData}}
-      @placeholder="100"
-    />
-    </template>);
+    await render(<template><UiFormNumber
+    @data={{parent.data}}
+    @key="donation"
+    @label="Donation amount (\$)"
+    @minValue={{0}}
+    @onUpdate={{parent.updateData}}
+    @placeholder="100"
+    /></template>);
 
     assert.dom('[data-test-label]').hasText('Donation amount ($)');
 
@@ -42,17 +40,15 @@ module('Integration | Component | ui/form/number', function (hooks) {
   test('We can pass @isDisabled to disable the input', async function (assert) {
     const { parent } = this;
 
-    await render(<template>
-    <UiFormNumber
-      @data={{parent.data}}
-      @isDisabled={{true}}
-      @key="donation"
-      @label="Donation amount (\$)"
-      @minValue={{0}}
-      @onUpdate={{parent.updateData}}
-      @placeholder="100"
-    />
-    </template>);
+    await render(<template><UiFormNumber
+    @data={{parent.data}}
+    @isDisabled={{true}}
+    @key="donation"
+    @label="Donation amount (\$)"
+    @minValue={{0}}
+    @onUpdate={{parent.updateData}}
+    @placeholder="100"
+    /></template>);
 
     assert.dom('[data-test-field]').isDisabled();
   });
@@ -60,17 +56,15 @@ module('Integration | Component | ui/form/number', function (hooks) {
   test('We can pass @isReadOnly to display the value', async function (assert) {
     const { parent } = this;
 
-    await render(<template>
-    <UiFormNumber
-      @data={{parent.data}}
-      @isReadOnly={{true}}
-      @key="donation"
-      @label="Donation amount (\$)"
-      @minValue={{0}}
-      @onUpdate={{parent.updateData}}
-      @placeholder="100"
-    />
-    </template>);
+    await render(<template><UiFormNumber
+    @data={{parent.data}}
+    @isReadOnly={{true}}
+    @key="donation"
+    @label="Donation amount (\$)"
+    @minValue={{0}}
+    @onUpdate={{parent.updateData}}
+    @placeholder="100"
+    /></template>);
 
     assert
       .dom('[data-test-field]')
@@ -81,17 +75,15 @@ module('Integration | Component | ui/form/number', function (hooks) {
   test('We can pass @isRequired to require a value', async function (assert) {
     const { parent } = this;
 
-    await render(<template>
-    <UiFormNumber
-      @data={{parent.data}}
-      @isRequired={{true}}
-      @key="donation"
-      @label="Donation amount (\$)"
-      @minValue={{0}}
-      @onUpdate={{parent.updateData}}
-      @placeholder="100"
-    />
-    </template>);
+    await render(<template><UiFormNumber
+    @data={{parent.data}}
+    @isRequired={{true}}
+    @key="donation"
+    @label="Donation amount (\$)"
+    @minValue={{0}}
+    @onUpdate={{parent.updateData}}
+    @placeholder="100"
+    /></template>);
 
     assert.dom('[data-test-label]').hasText('Donation amount ($) *');
 
@@ -101,17 +93,15 @@ module('Integration | Component | ui/form/number', function (hooks) {
   test('We can pass @onUpdate to get the updated value', async function (assert) {
     const { parent } = this;
 
-    await render(<template>
-    <UiFormNumber
-      @data={{parent.data}}
-      @isRequired={{true}}
-      @key="donation"
-      @label="Donation amount (\$)"
-      @minValue={{0}}
-      @onUpdate={{parent.updateData}}
-      @placeholder="100"
-    />
-    </template>);
+    await render(<template><UiFormNumber
+    @data={{parent.data}}
+    @isRequired={{true}}
+    @key="donation"
+    @label="Donation amount (\$)"
+    @minValue={{0}}
+    @onUpdate={{parent.updateData}}
+    @placeholder="100"
+    /></template>);
 
     // Update the value
     await fillIn('[data-test-field]', '');
