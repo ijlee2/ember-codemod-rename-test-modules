@@ -16,9 +16,9 @@ module('Integration | Component | navigation-menu', function (hooks) {
       },
     ];
 
-    await render(<template>
-    <NavigationMenu @menuItems={{menuItems}} @name="Main Navigation" />
-    </template>);
+    await render(
+      <template><NavigationMenu @menuItems={{menuItems}} @name="Main Navigation" /></template>
+    );
 
     assert
       .dom('[data-test-nav="Main Navigation"]')
@@ -42,9 +42,9 @@ module('Integration | Component | navigation-menu', function (hooks) {
       },
     ];
 
-    await render(<template>
-    <NavigationMenu @menuItems={{menuItems}} @name="Main Navigation" />
-    </template>);
+    await render(
+      <template><NavigationMenu @menuItems={{menuItems}} @name="Main Navigation" /></template>
+    );
 
     assert.dom('[data-test-link="Home"]').hasClass(getClass('link'));
   });
