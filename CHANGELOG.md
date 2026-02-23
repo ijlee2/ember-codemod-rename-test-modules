@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- [#36](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/36) Dropped support for Node 20 ([@ijlee2](https://github.com/ijlee2))
+
 ## 2.3.2
 
 ### Patch Changes
