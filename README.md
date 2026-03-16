@@ -16,7 +16,7 @@ _Codemod to rename test modules_
 Pass `--root` to run the codemod somewhere else (i.e. not in the current directory).
 
 ```sh
-npx ember-codemod-rename-test-modules --root <path/to/your/project>
+pnpx ember-codemod-rename-test-modules --root <path/to/your/project>
 ```
 
 </details>
