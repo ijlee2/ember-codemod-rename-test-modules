@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- [#38](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/38) Recommended the use of pnpx ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.0
 
 ### Major Changes
