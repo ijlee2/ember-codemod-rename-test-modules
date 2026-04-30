@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.1.0
+
+### Minor Changes
+
+- [#40](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/40) Fixed lint errors ([@ijlee2](https://github.com/ijlee2))
+
+### Patch Changes
+
+- [`6205814`](https://github.com/ijlee2/ember-codemod-rename-test-modules/commit/6205814386017221c89361ba06a795c6da1cd1ab) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.0.2
 
 ### Patch Changes
