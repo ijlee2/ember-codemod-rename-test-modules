@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.1
+
+### Patch Changes
+
+- [`482c6f9`](https://github.com/ijlee2/ember-codemod-rename-test-modules/commit/482c6f9452321107b0ada31940ba88116174b55f) Updated dependencies ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.1.0
 
 ### Minor Changes
