@@ -9,7 +9,6 @@ test('utils | rename-tests | rename-module > edge case (module does not exist)',
   ]);
 
   const newFile = renameModule(oldFile, {
-    isTypeScript: true,
     moduleName: 'New name',
   });
 

@@ -11,7 +11,6 @@ test('utils | rename-tests | rename-module > edge case (nested modules)', functi
   ]);
 
   const newFile = renameModule(oldFile, {
-    isTypeScript: true,
     moduleName: 'New name',
   });
 

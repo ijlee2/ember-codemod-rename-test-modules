@@ -6,7 +6,6 @@ test('utils | rename-tests | rename-module > edge case (file is empty)', functio
   const oldFile = '';
 
   const newFile = renameModule(oldFile, {
-    isTypeScript: true,
     moduleName: 'New name',
   });
 

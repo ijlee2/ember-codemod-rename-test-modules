@@ -6,7 +6,6 @@ test('utils | rename-tests | rename-module > edge case (module has incorrect arg
   const oldFile = normalizeFile([`module('Old name');`, ``]);
 
   const newFile = renameModule(oldFile, {
-    isTypeScript: true,
     moduleName: 'New name',
   });
 
