@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.0
+
+### Minor Changes
+
+- [#43](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/43) Updated dependencies (`@codemod-utils/ast-javascript` to v4) ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.1.1
 
 ### Patch Changes
