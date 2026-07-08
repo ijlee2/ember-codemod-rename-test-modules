@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.2
+
+### Patch Changes
+
+- [#45](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/45) Updated dependencies (eslint@v10, typescript@v6) ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.2.1
 
 ### Patch Changes
