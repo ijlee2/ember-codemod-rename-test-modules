@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.6
+
+### Patch Changes
+
+- [#53](https://github.com/ijlee2/ember-codemod-rename-test-modules/pull/53) Updated dependencies (replaced eslint with oxlint) ([@ijlee2](https://github.com/ijlee2))
+
 ## 3.2.5
 
 ### Patch Changes
