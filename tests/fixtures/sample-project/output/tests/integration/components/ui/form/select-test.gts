@@ -50,11 +50,11 @@ module('Integration | Component | ui/form/select', function (hooks) {
     const { options, parent } = this;
 
     await render(<template><UiFormSelect
-    @data={{parent.data}}
-    @key="sortBy"
-    @label="Sort by"
-    @onUpdate={{parent.updateData}}
-    @options={{options}}
+      @data={{parent.data}}
+      @key="sortBy"
+      @label="Sort by"
+      @onUpdate={{parent.updateData}}
+      @options={{options}}
     /></template>);
 
     assert.dom('[data-test-label]').hasText('Sort by');
@@ -87,10 +87,10 @@ module('Integration | Component | ui/form/select', function (hooks) {
     const { parent } = this;
 
     await render(<template><UiFormSelect
-    @data={{parent.data}}
-    @key="sortBy"
-    @label="Sort by"
-    @onUpdate={{parent.updateData}}
+      @data={{parent.data}}
+      @key="sortBy"
+      @label="Sort by"
+      @onUpdate={{parent.updateData}}
     /></template>);
 
     assert.dom('[data-test-label]').hasText('Sort by');
@@ -111,12 +111,12 @@ module('Integration | Component | ui/form/select', function (hooks) {
     const { options, parent } = this;
 
     await render(<template><UiFormSelect
-    @data={{parent.data}}
-    @isDisabled={{true}}
-    @key="sortBy"
-    @label="Sort by"
-    @onUpdate={{parent.updateData}}
-    @options={{options}}
+      @data={{parent.data}}
+      @isDisabled={{true}}
+      @key="sortBy"
+      @label="Sort by"
+      @onUpdate={{parent.updateData}}
+      @options={{options}}
     /></template>);
 
     assert.dom('[data-test-field]').isDisabled('The select is disabled.');
@@ -126,12 +126,12 @@ module('Integration | Component | ui/form/select', function (hooks) {
     const { options, parent } = this;
 
     await render(<template><UiFormSelect
-    @data={{parent.data}}
-    @isReadOnly={{true}}
-    @key="sortBy"
-    @label="Sort by"
-    @onUpdate={{parent.updateData}}
-    @options={{options}}
+      @data={{parent.data}}
+      @isReadOnly={{true}}
+      @key="sortBy"
+      @label="Sort by"
+      @onUpdate={{parent.updateData}}
+      @options={{options}}
     /></template>);
 
     assert.dom('[data-test-field]').hasValue('name:asc').isDisabled();
@@ -141,12 +141,12 @@ module('Integration | Component | ui/form/select', function (hooks) {
     const { options, parent } = this;
 
     await render(<template><UiFormSelect
-    @data={{parent.data}}
-    @isRequired={{true}}
-    @key="sortBy"
-    @label="Sort by"
-    @onUpdate={{parent.updateData}}
-    @options={{options}}
+      @data={{parent.data}}
+      @isRequired={{true}}
+      @key="sortBy"
+      @label="Sort by"
+      @onUpdate={{parent.updateData}}
+      @options={{options}}
     /></template>);
 
     assert.dom('[data-test-label]').hasText('Sort by *');
@@ -158,12 +158,12 @@ module('Integration | Component | ui/form/select', function (hooks) {
     const { options, parent } = this;
 
     await render(<template><UiFormSelect
-    @data={{parent.data}}
-    @isRequired={{true}}
-    @key="sortBy"
-    @label="Sort by"
-    @onUpdate={{parent.updateData}}
-    @options={{options}}
+      @data={{parent.data}}
+      @isRequired={{true}}
+      @key="sortBy"
+      @label="Sort by"
+      @onUpdate={{parent.updateData}}
+      @options={{options}}
     /></template>);
 
     await selectByLabel('[data-test-field]', 'Price: High to Low');
@@ -182,12 +182,12 @@ module('Integration | Component | ui/form/select', function (hooks) {
     const { options, parent } = this;
 
     await render(<template><UiFormSelect
-    @data={{parent.data}}
-    @isRequired={{true}}
-    @key="sortBy"
-    @label="Sort by"
-    @onUpdate={{parent.updateData}}
-    @options={{options}}
+      @data={{parent.data}}
+      @isRequired={{true}}
+      @key="sortBy"
+      @label="Sort by"
+      @onUpdate={{parent.updateData}}
+      @options={{options}}
     /></template>);
 
     await click('[data-test-button="Clear"]');
