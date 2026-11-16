@@ -26,51 +26,51 @@ module('Integration | Component | ui/form', function (hooks) {
     const { data, submitForm } = this;
 
     await render(<template><UiForm
-    @data={{data}}
-    @instructions="Still have questions about ember-container-query? Try sending me a message."
-    @onSubmit={{submitForm}}
-    @title="Contact me"
-    as |F|
+      @data={{data}}
+      @instructions="Still have questions about ember-container-query? Try sending me a message."
+      @onSubmit={{submitForm}}
+      @title="Contact me"
+      as |F|
     >
-    <div>
-    <F.Input
-    @isRequired={{true}}
-    @key="name"
-    @label="Name"
-    @placeholder="Zoey"
-    />
-    </div>
+      <div>
+        <F.Input
+          @isRequired={{true}}
+          @key="name"
+          @label="Name"
+          @placeholder="Zoey"
+        />
+      </div>
 
-    <div>
-    <F.Input
-    @isRequired={{true}}
-    @key="email"
-    @label="Email"
-    @placeholder="zoey@emberjs.com"
-    @type="email"
-    />
+      <div>
+        <F.Input
+          @isRequired={{true}}
+          @key="email"
+          @label="Email"
+          @placeholder="zoey@emberjs.com"
+          @type="email"
+        />
 
-    <div>
-    <F.Textarea @key="message" @label="Message" />
-    </div>
+        <div>
+          <F.Textarea @key="message" @label="Message" />
+        </div>
 
-    <div>
-    <F.Checkbox
-    @key="subscribe"
-    @label="Subscribe to The Ember Times?"
-    />
-    </div>
+        <div>
+          <F.Checkbox
+            @key="subscribe"
+            @label="Subscribe to The Ember Times?"
+          />
+        </div>
 
-    <div>
-    <F.Number
-    @key="donation"
-    @label="Donation amount (\$)"
-    @minValue={{0}}
-    @placeholder="100"
-    @step={{10}}
-    />
-    </div>
-    </div>
+        <div>
+          <F.Number
+            @key="donation"
+            @label="Donation amount (\$)"
+            @minValue={{0}}
+            @placeholder="100"
+            @step={{10}}
+          />
+        </div>
+      </div>
     </UiForm></template>);
 
     const titleId = find('[data-test-title]').getAttribute('id');
@@ -98,45 +98,45 @@ module('Integration | Component | ui/form', function (hooks) {
     const { data, submitForm } = this;
 
     await render(<template><UiForm @data={{data}} @onSubmit={{submitForm}} as |F|>
-    <div>
-    <F.Input
-    @isRequired={{true}}
-    @key="name"
-    @label="Name"
-    @placeholder="Zoey"
-    />
-    </div>
+      <div>
+        <F.Input
+          @isRequired={{true}}
+          @key="name"
+          @label="Name"
+          @placeholder="Zoey"
+        />
+      </div>
 
-    <div>
-    <F.Input
-    @isRequired={{true}}
-    @key="email"
-    @label="Email"
-    @placeholder="zoey@emberjs.com"
-    @type="email"
-    />
-    </div>
+      <div>
+        <F.Input
+          @isRequired={{true}}
+          @key="email"
+          @label="Email"
+          @placeholder="zoey@emberjs.com"
+          @type="email"
+        />
+      </div>
 
-    <div>
-    <F.Textarea @key="message" @label="Message" />
-    </div>
+      <div>
+        <F.Textarea @key="message" @label="Message" />
+      </div>
 
-    <div>
-    <F.Checkbox
-    @key="subscribe"
-    @label="Subscribe to The Ember Times?"
-    />
-    </div>
+      <div>
+        <F.Checkbox
+          @key="subscribe"
+          @label="Subscribe to The Ember Times?"
+        />
+      </div>
 
-    <div>
-    <F.Number
-    @key="donation"
-    @label="Donation amount (\$)"
-    @minValue={{0}}
-    @placeholder="100"
-    @step={{10}}
-    />
-    </div>
+      <div>
+        <F.Number
+          @key="donation"
+          @label="Donation amount (\$)"
+          @minValue={{0}}
+          @placeholder="100"
+          @step={{10}}
+        />
+      </div>
     </UiForm></template>);
 
     await fillIn('[data-test-field="Name"]', 'Zoey');
